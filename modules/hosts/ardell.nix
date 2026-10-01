@@ -1,6 +1,7 @@
 { den, ... }: {
   # host aspect
   den.aspects.ardell = {
+    includes = [ den.aspects.terminal-tools-base ];
     # host NixOS configuration
     nixos =
       { pkgs, ... }:

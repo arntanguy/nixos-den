@@ -9,10 +9,18 @@
   # Exclude vanilla packages route — handled via flake-parts scope.
   den.schema.flake-system.excludes = [ den.policies.packages-to-flake ];
 
-  # arnaud user at ardell host.
+  # ardell host
   den.hosts.x86_64-linux.ardell = {
     description = "Dell Precision 7569 / LIRMM / IDH";
     users.arnaud = { };
+    users.guest = { };
+  };
+
+  # panda control host
+  den.hosts.x86_64-linux.bamboo = {
+    description = "Bamboo / Panda Control / LIRMM / IDH";
+    users.arnaud = { };
+    users.panda = { };
     users.guest = { };
   };
 

@@ -7,9 +7,6 @@ let
   hostNames = builtins.attrNames inputs.self.nixosConfigurations;
 in
 {
-  # Optionally, remove or generalize the tty-autologin line if needed
-  den.aspects.igloo.includes = [ (den.batteries.tty-autologin "arnaud") ];
-
   perSystem = { pkgs, ... }: {
     packages = builtins.listToAttrs (
       map (hostName: {

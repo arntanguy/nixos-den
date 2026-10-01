@@ -1,7 +1,7 @@
 { den, ... }:
 {
   # user aspect
-  den.aspects.arnaud = {
+  den.aspects.panda = {
     includes = [
       den.batteries.define-user
       den.batteries.primary-user
