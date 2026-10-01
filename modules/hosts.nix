@@ -1,8 +1,20 @@
 # defines all hosts + users + homes.
 # then config their aspects in as many files you want
+{ den, ... }:
 {
-  # tux user at igloo host.
-  den.hosts.x86_64-linux.igloo.users.tux = { };
+
+  # --- Pipeline wiring ---
+  # Enter flake-parts scope from flake-system.
+  den.schema.flake-system.includes = [ den.policies.system-to-flake-parts ];
+  # Exclude vanilla packages route — handled via flake-parts scope.
+  den.schema.flake-system.excludes = [ den.policies.packages-to-flake ];
+
+  # arnaud user at ardell host.
+  den.hosts.x86_64-linux.ardell = {
+    description = "Dell Precision 7569 / LIRMM / IDH";
+    users.arnaud = { };
+    users.guest = { };
+  };
 
   # define an standalone home-manager for tux
   # den.homes.x86_64-linux.tux = { };

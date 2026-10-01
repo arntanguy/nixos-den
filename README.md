@@ -31,3 +31,21 @@ See [modules/vm.nix](modules/vm.nix)
 ```console
 nix run .#vm
 ```
+
+# How-to
+
+## Add a new flake input
+
+This repository uses [flake-file](https://flake-file.denful.dev/) to auto-generate the flake.nix file from nix modules in ./modules. To add a new flake: 
+
+- Add a `flake-file.inputs` to your module:
+
+```
+  flake-file.inputs = {
+    treefmt-nix.url = "github:numtide/treefmt-nix";
+    treefmt-nix.inputs.nixpkgs.follows = "nixpkgs";
+  };
+```
+
+- Run `nix run .#write-flake`
+- Write your module code using the new flake input
