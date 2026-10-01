@@ -16,6 +16,10 @@
     };
     import-tree.url = "github:denful/import-tree";
     nixpkgs.url = "https://channels.nixos.org/nixpkgs-unstable/nixexprs.tar.zst";
+    nvim-wrapper = {
+      url = "github:arntanguy/nvim-wrapper";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     treefmt-nix = {
       url = "github:numtide/treefmt-nix";
       inputs.nixpkgs.follows = "nixpkgs";
