@@ -14,6 +14,11 @@
     description = "Dell Precision 7569 / LIRMM / IDH";
     users.arnaud = { };
     users.guest = { };
+
+    # XXX: freeform, better format
+    ipSuffix = "42";
+    # ethernetInterface = "enp7s0";
+    ethernetInterface = "eth0";
   };
 
   # panda control host
@@ -22,6 +27,11 @@
     users.arnaud = { };
     users.panda = { };
     users.guest = { };
+
+    # XXX: freeform, better format
+    ipSuffix = "43";
+    # ethernetInterface = "enp7s0";
+    ethernetInterface = "eth0";
   };
 
   # define an standalone home-manager for tux

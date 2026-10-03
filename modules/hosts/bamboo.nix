@@ -1,16 +1,10 @@
 { den, ... }: {
   # host aspect
-  den.aspects.ardell = {
+  den.aspects.bamboo = {
     includes = [
       den.aspects.terminal-tools-base
       den.aspects.networking-panda-robots
-      den.aspects.networking-ender3-arnaud
     ];
-
-    # XXX: freeform
-    # XXX: better format
-    ipSuffix = "42";
-    ethernetInterface = "eth0";
 
     # host NixOS configuration
     nixos =

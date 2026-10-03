@@ -10,7 +10,7 @@
       { pkgs, ... }:
       {
         imports = [
-          (builtins.trace "using nvim home module" inputs.nvim-wrapper.homeModules.neovim)
+          inputs.nvim-wrapper.homeModules.neovim
         ];
         wrappers.neovim.enable = true;
       };
