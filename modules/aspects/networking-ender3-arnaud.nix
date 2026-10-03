@@ -24,6 +24,13 @@
           host.ethernetInterface
         ];
 
+        # avahi enables resolution of *.local hostnames
+        services.avahi = {
+          enable = true;
+          nssmdns4 = true; # This adds mdns to /etc/nsswitch.conf for hosts
+          openFirewall = true; # Optional: open mDNS port in firewall
+        };
+
         # FIXME: do not disable firewall here, enable only the correct ports for the panda robots
         # networking.firewall.allowedTCPPorts = [ ... ];
         # networking.firewall.allowedUDPPorts = [ ... ];

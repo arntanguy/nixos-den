@@ -3,7 +3,10 @@
   den.aspects.ardell = {
     includes = [
       den.aspects.terminal-tools-base
+      # LIRMM
       den.aspects.networking-panda-robots
+      den.aspects.printing-idh-robcolor
+
       den.aspects.networking-ender3-arnaud
     ];
 

@@ -3,6 +3,7 @@
   den.aspects.bamboo = {
     includes = [
       den.aspects.terminal-tools-base
+      # LIRMM
       den.aspects.networking-panda-robots
     ];
 
