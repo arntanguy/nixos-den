@@ -1,10 +1,10 @@
-{ den, lib, ... }:
+{ den, ... }:
 {
   den.aspects.networking-panda-robots = {
     includes = [ ];
 
     nixos =
-      { host }:
+      { host, lib, ... }:
       let
         # FIXME parameters
         ethernetInterface = builtins.trace "ethernet interface is: ${host.ethernetInterface}" host.ethernetInterface; # globals.EthernetInterface;

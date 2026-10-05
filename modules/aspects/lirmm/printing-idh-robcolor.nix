@@ -1,10 +1,9 @@
-{ den, lib, ... }:
 {
   den.aspects.printing-idh-robcolor = {
     includes = [ ];
 
     nixos =
-      { pkgs }:
+      { pkgs, ... }:
       {
         # Enable CUPS and Avahi (for printer discovery):
         services.printing = {
@@ -40,6 +39,6 @@
           # Printer
           system-config-printer
         ];
+      };
   };
-};
 }
