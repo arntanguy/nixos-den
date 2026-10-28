@@ -9,7 +9,6 @@
         # FIXME parameters
         ethernetInterface = builtins.trace "ethernet interface is: ${host.ethernetInterface}" host.ethernetInterface; # globals.EthernetInterface;
         ipSuffixStr = builtins.trace "host ip suffix is: ${host.ipSuffix}" host.ipSuffix; # toString config.modules.networkmanager.profiles.lirmm-pandas.ipSuffix;
-        macAddr = if builtins.hasAttr "macAddress" host then host.macAddress else ""; # config.modules.networkmanager.profiles.lirmm-pandas.macAddress;
       in
       {
         networking.hosts = {
@@ -38,10 +37,6 @@
 
         networking = {
           interfaces.${ethernetInterface} = {
-            # XXX: is this useful?
-            mtu = 1400; # or even 1280 reduce latency
-            # Set custom MAC address if specified
-            macAddress = lib.mkIf (macAddr != "") macAddr;
             ipv4.addresses = [
               {
                 # ender3 ethernet
