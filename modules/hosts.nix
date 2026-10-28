@@ -34,6 +34,17 @@
     ethernetInterface = "eth0";
   };
 
+  # huiting13 host
+  den.hosts.x86_64-linux.huiting13 = {
+    description = "Dell XPS-13-9370 / LIRMM / IDH";
+    users.arnaud = { };
+    users.guest = { };
+
+    # XXX: freeform, better format
+    ipSuffix = "44";
+    ethernetInterface = "enp0s20f0u1u1";
+  };
+
   # define an standalone home-manager for tux
   # den.homes.x86_64-linux.tux = { };
 
