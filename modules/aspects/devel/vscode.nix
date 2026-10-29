@@ -1,8 +1,16 @@
 # VSCode base configuration
 # Highly opinionated
+{ den, ... }:
 {
   # User-specific terminal interfaces, CLIs, and GUIs
   den.aspects.devel.vscode = {
+    includes = [
+      (den.batteries.unfree [
+        "copilot-language-server"
+        "vscode"
+        "vscode-extension-ms-vscode-remote-remote-containers"
+      ])
+    ];
     homeManager =
       { pkgs, ... }:
       {

@@ -2,15 +2,16 @@
 { den, ... }:
 {
   den.aspects.fish-arnaud = {
-
     includes = [
-      den.aspects.fish-base
+      (den.batteries.user-shell "fish")
       den.aspects.bitwarden-arnaud
+      den.aspects.nvim-arnaud
     ];
 
     homeManager =
-      { pkgs, ... }:
+      { ... }:
       {
+        xdg.configFile."fish/config.fish".force = true;
         programs = {
           fish = {
             enable = true;

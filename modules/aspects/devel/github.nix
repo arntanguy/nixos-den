@@ -3,6 +3,11 @@
 {
   # User-specific terminal interfaces, CLIs, and GUIs
   den.aspects.devel.github = {
+    includes = [
+      (den.batteries.unfree [
+        "github-copilot-cli"
+      ])
+    ];
     homeManager =
       { pkgs, ... }:
       {
