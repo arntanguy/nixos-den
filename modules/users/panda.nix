@@ -8,15 +8,6 @@
       (den.batteries.user-shell "bash")
     ];
 
-    nixos =
-      { host, user }:
-      builtins.trace "set pwd for user ${user.name}" {
-        users.users.${user.name} = {
-          # Replace "yourpassword" with the desired password
-          initialPassword = "${user.name}";
-        };
-      };
-
     homeManager =
       { pkgs, ... }:
       {

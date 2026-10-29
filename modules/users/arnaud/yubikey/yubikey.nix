@@ -49,11 +49,31 @@
       };
 
     homeManager =
-      { pkgs, ... }:
+      { pkgs, config, ... }:
       {
         home.packages = with pkgs; [
           yubioath-flutter # official YubiKey Authenticator App
         ];
+
+        # Place yubikey.pub at ~/.ssh/yubikey.pub automatically
+        home.file.".ssh/yubikey.pub".source = ./yubikey.pub;
+
+        # Automatically import your YubiKey public key on activation/switch
+        home.activation.importYubikeyPub = config.lib.dag.entryAfter [ "writeBoundary" ] ''
+          # Assuming yubikey.pub is stored in your repo relative to this aspect,
+          # or provide an absolute path to where it lives in your flake source tree.
+          PUBKEY_PATH="${./yubikey.pub}"
+
+          if [ -f "$PUBKEY_PATH" ]; then
+            # Check if the key is already imported to avoid spamming output
+            if ! ${pkgs.gnupg}/bin/gpg --list-keys "64DF9BCBF1C4E40520C8F7C22B2888B308742120" >/dev/null 2>&1; then
+              echo "Importing YubiKey public key..."
+              ${pkgs.gnupg}/bin/gpg --import "$PUBKEY_PATH"
+            fi
+            # Force GPG to query the card to link secret key stubs if YubiKey is plugged in
+            ${pkgs.gnupg}/bin/gpg --card-status >/dev/null 2>&1 || true
+          fi
+        '';
       };
   };
 }
