@@ -35,7 +35,6 @@
             ];
 
         environment.variables = {
-          LD_LIBRARY_PATH = "/run/opengl-driver/lib";
           ELECTRON_OZONE_PLATFORM_HINT = "wayland";
           OZONE_PLATFORM = "wayland";
           GDK_BACKEND = "wayland";

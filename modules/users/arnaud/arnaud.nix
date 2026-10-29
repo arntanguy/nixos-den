@@ -24,6 +24,7 @@
         arnaud.networking.wifi
 
         arnaud.networking.ender3
+        arnaud.audio-editing
       ]);
 
     nixos =
