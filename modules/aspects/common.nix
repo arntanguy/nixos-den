@@ -1,18 +1,25 @@
 { den, ... }:
 {
   den.aspects.common = {
-    includes = [ ];
+    includes = [
+      den.aspects.init-users-password
+    ];
 
     nixos =
-      { lib, ... }:
+      { lib, pkgs, ... }:
       {
         nix.settings.experimental-features = [
           "nix-command"
           "flakes"
         ];
-        hardware = {
-          graphics.enable = true;
+
+        fonts = {
+          fontconfig.enable = true;
+          packages = with pkgs; [
+            nerd-fonts.jetbrains-mono
+          ];
         };
+
         services.openssh = {
           enable = true;
           # Optional: allow password authentication (default is false)

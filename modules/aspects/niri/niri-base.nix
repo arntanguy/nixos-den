@@ -10,6 +10,10 @@
           xwayland.enable = true;
         };
 
+        hardware = {
+          graphics.enable = true;
+        };
+
         services = {
           displayManager.enable = true;
           displayManager.ly.enable = true;

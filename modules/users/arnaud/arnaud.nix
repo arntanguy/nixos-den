@@ -9,16 +9,10 @@
       (den.batteries.user-shell "bash")
       den.aspects.nvim-arnaud
       den.aspects.niri-arnaud
-    ];
 
-    nixos =
-      { host, user }:
-      builtins.trace "set pwd for user ${user.name}" {
-        users.users.${user.name} = {
-          # Replace "yourpassword" with the desired password
-          initialPassword = "${user.name}";
-        };
-      };
+      den.aspects.git-arnaud
+      den.aspects.yubikey-arnaud
+    ];
 
     homeManager =
       { pkgs, ... }:

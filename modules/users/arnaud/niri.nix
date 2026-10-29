@@ -2,8 +2,10 @@
 { den, ... }:
 {
   den.aspects.niri-arnaud = {
-
-    includes = [ den.aspects.niri-base ];
+    includes = [
+      den.aspects.niri-base
+      den.aspects.bitwarden-arnaud
+    ];
 
     homeManager =
       { pkgs, ... }:
@@ -12,7 +14,7 @@
           sunsetr
           noctalia
           kitty
-          rofi-rbw
+          bitwarden-desktop
         ];
 
         xdg.configFile."swaylock/config".source = ./mocha.conf;
