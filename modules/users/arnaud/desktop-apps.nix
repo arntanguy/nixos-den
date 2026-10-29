@@ -2,7 +2,9 @@
 { den, ... }:
 {
   den.aspects.arnaud.desktop-apps = {
-    includes = [ ];
+    includes = [
+      den.aspects.nautilus
+    ];
 
     homeManager =
       { pkgs, ... }:
@@ -10,7 +12,6 @@
         programs.firefox.enable = true;
 
         home.packages = with pkgs; [
-          nautilus
           eog
         ];
       };
