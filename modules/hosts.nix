@@ -2,6 +2,12 @@
 # then config their aspects in as many files you want
 { den, ... }:
 {
+  flake-file.inputs = {
+    disko = {
+      url = "github:nix-community/disko";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+  };
 
   # --- Pipeline wiring ---
   # Enter flake-parts scope from flake-system.
@@ -43,6 +49,12 @@
     # XXX: freeform, better format
     ipSuffix = "44";
     ethernetInterface = "enp0s20f0u1u1";
+    # XXX: must be set to false for nixos-anywhere
+    # then copy the user's age keys to ~/.config/sops/age/keys.txt
+    # then put to true
+    # then run nixos-rebuild switch
+    # enableSecrets = true;
+    enableSecrets = true;
   };
 
   # define an standalone home-manager for tux

@@ -1,7 +1,7 @@
-{ den, ... }:
+{ den, lib, ... }:
 {
   # user aspect
-  den.aspects.arnaud = {
+  den.aspects.arnaud = { host, ... }: {
     includes = [
       den.batteries.define-user
       den.batteries.primary-user
@@ -9,9 +9,12 @@
       den.aspects.nvim-arnaud
       den.aspects.fish-arnaud
       den.aspects.niri-arnaud
+      den.aspects.arnaud.desktop-apps
 
       den.aspects.git-arnaud
       den.aspects.yubikey-arnaud
+      den.aspects.arnaud.sops
+      den.aspects.arnaud.syncthing
 
       den.aspects.devel.jrl
     ];

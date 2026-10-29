@@ -2,6 +2,7 @@
 {
   den.aspects.common = {
     includes = [
+      den.batteries.hostname
       den.aspects.init-users-password
     ];
 
@@ -12,6 +13,10 @@
           "nix-command"
           "flakes"
         ];
+
+        networking.firewall = {
+          enable = true;
+        };
 
         fonts = {
           fontconfig.enable = true;
@@ -32,4 +37,5 @@
       };
 
   };
+
 }

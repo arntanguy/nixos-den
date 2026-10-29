@@ -4,6 +4,7 @@
     homeManager =
       { pkgs, ... }:
       {
+        programs.direnv.enable = true;
         home.packages = with pkgs; [
           # Core Nix Infrastructure
           nixfmt

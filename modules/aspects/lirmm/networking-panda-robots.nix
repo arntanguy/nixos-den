@@ -9,13 +9,17 @@
         # FIXME parameters
         ethernetInterface = builtins.trace "ethernet interface is: ${host.ethernetInterface}" host.ethernetInterface; # globals.EthernetInterface;
         ipSuffixStr = builtins.trace "host ip suffix is: ${host.ipSuffix}" host.ipSuffix; # toString config.modules.networkmanager.profiles.lirmm-pandas.ipSuffix;
+        panda6Ip = "172.16.0.6";
+        panda7Ip = "172.16.1.7";
+        panda2Ip = "192.168.1.2";
+        pandaGaneshIp = "172.16.0.1";
       in
       {
         networking.hosts = {
-          "172.16.0.6" = [ "panda6" ];
-          "172.16.1.7" = [ "panda7" ];
-          "192.168.1.2" = [ "panda2" ];
-          "172.16.0.1" = [ "panda_ganesh" ];
+          "${panda6Ip}" = [ "panda6" ];
+          "${panda7Ip}" = [ "panda7" ];
+          "${panda2Ip}" = [ "panda2" ];
+          "${pandaGaneshIp}" = [ "panda_ganesh" ];
         };
         networking.networkmanager.enable = true;
 
@@ -24,10 +28,19 @@
           host.ethernetInterface
         ];
 
-        # FIXME: do not disable firewall here, enable only the correct ports for the panda robots
-        # networking.firewall.allowedTCPPorts = [ ... ];
-        # networking.firewall.allowedUDPPorts = [ ... ];
-        networking.firewall.enable = false;
+        # XXX: test me
+        networking.firewall = {
+          allowedTCPPorts = [
+            1337
+            1338
+            443
+          ];
+          # allowedUDPPorts = [];
+          # Allow all incoming packets from the robot's specific IP address to prevent UDP 1kHz timeouts
+          extraInputRules = ''
+            ip saddr { ${panda2Ip} ${panda6Ip} ${panda7Ip} ${pandaGaneshIp} } accept
+          '';
+        };
 
         networking = {
           interfaces.${ethernetInterface} = {
