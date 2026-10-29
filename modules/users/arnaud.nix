@@ -5,8 +5,10 @@
     includes = [
       den.batteries.define-user
       den.batteries.primary-user
+      den.batteries.hostname
       (den.batteries.user-shell "bash")
       den.aspects.nvim-arnaud
+      den.aspects.niri
     ];
 
     nixos =

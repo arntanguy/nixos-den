@@ -2,6 +2,7 @@
   # host aspect
   den.aspects.huiting13 = {
     includes = [
+      den.aspects.common # nix settings, openssh
       den.aspects.terminal-tools-base
       # LIRMM
       den.aspects.networking-panda-robots
