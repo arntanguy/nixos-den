@@ -39,8 +39,9 @@ nix run .#vm
 If your user needs to use secrets to configure services, this can be handled using `sops-nix`.
 
 <details>
-  <summary>For a quick run-through on how to create age keys and encrypt a secrets.yaml file, expand here</summary>
-- First, if you do not already have one, generate an age key:
+<summary>For a quick run-through on how to create age keys and encrypt a secrets.yaml file, expand here</summary>
+
+  - First, if you do not already have one, generate an age key:
   ```sh
   nix-shell -p age sops
   mkdir -p /tmp/age 
