@@ -4,6 +4,7 @@
     includes = [
       den.aspects.common # nix settings, openssh, init user passwords
       den.aspects.terminal-tools-base
+      den.aspects.laptop
       # LIRMM
       den.aspects.lirmm.teams.idh
     ];
