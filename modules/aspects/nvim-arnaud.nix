@@ -1,7 +1,7 @@
 # Arnaud's neovim configuration
 { inputs, den, ... }:
 {
-  den.aspects.nvim-arnaud = {
+  den.aspects.arnaud.nvim = {
     includes = [
       (den.batteries.unfree [ "copilot-language-server" ])
     ];

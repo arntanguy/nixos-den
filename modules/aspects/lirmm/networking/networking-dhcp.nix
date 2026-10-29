@@ -1,6 +1,6 @@
 { den, ... }:
 {
-  den.aspects.networking-dhcp = {
+  den.aspects.lirmm.networking.dhcp = {
     includes = [ ];
 
     nixos =
@@ -8,7 +8,6 @@
       let
         # FIXME parameters
         ethernetInterface = builtins.trace "ethernet interface is: ${host.ethernetInterface}" host.ethernetInterface; # globals.EthernetInterface;
-        ipSuffixStr = builtins.trace "host ip suffix is: ${host.ipSuffix}" host.ipSuffix; # toString config.modules.networkmanager.profiles.lirmm-pandas.ipSuffix;
         macAddr = if builtins.hasAttr "macAddress" host then host.macAddress else ""; # config.modules.networkmanager.profiles.lirmm-pandas.macAddress;
       in
       {

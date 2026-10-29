@@ -1,6 +1,7 @@
 { den, lib, ... }:
 {
-  den.aspects.networking-ender3-arnaud = {
+  den.aspects.arnaud.networking.ender3 = {
+    description = "Arnaud's Ender3 network configuration";
     includes = [ ];
 
     nixos =
@@ -9,10 +10,11 @@
         # FIXME parameters
         ethernetInterface = builtins.trace "ethernet interface is: ${host.ethernetInterface}" host.ethernetInterface; # globals.EthernetInterface;
         ipSuffixStr = builtins.trace "host ip suffix is: ${host.ipSuffix}" host.ipSuffix; # toString config.modules.networkmanager.profiles.lirmm-pandas.ipSuffix;
+        ender3Ip = "192.168.42.32";
       in
       {
         networking.hosts = {
-          "192.168.42.32" = [ "ender3.ethernet" ];
+          "${ender3Ip}" = [ "ender3.ethernet" ];
         };
         networking.networkmanager.enable = true;
 
@@ -30,10 +32,14 @@
           openFirewall = true; # Optional: open mDNS port in firewall
         };
 
-        # FIXME: do not disable firewall here, enable only the correct ports for the panda robots
-        # networking.firewall.allowedTCPPorts = [ ... ];
-        # networking.firewall.allowedUDPPorts = [ ... ];
-        networking.firewall.enable = false;
+        # XXX: test me
+        # FIXME: figure out what ports ought to be opened instead
+        networking.firewall = {
+          # Allow all incoming packets from the robot's specific IP address to prevent UDP 1kHz timeouts
+          extraInputRules = ''
+            ip saddr ${ender3Ip} accept
+          '';
+        };
 
         networking = {
           interfaces.${ethernetInterface} = {
