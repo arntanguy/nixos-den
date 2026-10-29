@@ -1,6 +1,6 @@
 # Bitwarden configuration for arnaud user
 {
-  den.aspects.bitwarden-arnaud = {
+  den.aspects.arnaud.bitwarden = {
     includes = [ ];
     homeManager =
       { pkgs, ... }:

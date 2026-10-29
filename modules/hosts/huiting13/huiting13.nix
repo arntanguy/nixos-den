@@ -5,11 +5,7 @@
       den.aspects.common # nix settings, openssh, init user passwords
       den.aspects.terminal-tools-base
       # LIRMM
-      den.aspects.networking-panda-robots
-      den.aspects.networking-rhps1-robot
-      den.aspects.printing-idh-robcolor
-
-      den.aspects.networking-ender3-arnaud
+      den.aspects.lirmm.teams.idh
     ];
 
     # host NixOS configuration

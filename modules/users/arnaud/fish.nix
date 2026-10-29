@@ -1,11 +1,11 @@
 # Fish configuration for arnaud user
 { den, ... }:
 {
-  den.aspects.fish-arnaud = {
+  den.aspects.arnaud.fish = {
     includes = [
       (den.batteries.user-shell "fish")
-      den.aspects.bitwarden-arnaud
-      den.aspects.nvim-arnaud
+      den.aspects.arnaud.bitwarden
+      den.aspects.arnaud.nvim
     ];
 
     homeManager =

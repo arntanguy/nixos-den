@@ -1,6 +1,6 @@
 { den, ... }:
 {
-  den.aspects.networking-panda-robots = {
+  den.aspects.lirmm.networking.panda-robots = {
     includes = [ ];
 
     nixos =

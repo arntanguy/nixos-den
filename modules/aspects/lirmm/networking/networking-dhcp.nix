@@ -1,6 +1,6 @@
 { den, ... }:
 {
-  den.aspects.networking-dhcp = {
+  den.aspects.lirmm.networking.dhcp = {
     includes = [ ];
 
     nixos =

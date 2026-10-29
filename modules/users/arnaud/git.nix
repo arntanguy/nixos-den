@@ -1,8 +1,8 @@
 { den, ... }:
 {
-  den.aspects.git-arnaud = {
+  den.aspects.arnaud.git = {
     includes = [
-      den.aspects.yubikey-arnaud
+      den.aspects.arnaud.yubikey
     ];
 
     homeManager =

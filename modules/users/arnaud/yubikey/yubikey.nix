@@ -1,6 +1,6 @@
 { den, ... }:
 {
-  den.aspects.yubikey-arnaud = {
+  den.aspects.arnaud.yubikey = {
     includes = [ ];
 
     nixos =

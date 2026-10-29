@@ -1,5 +1,5 @@
 {
-  den.aspects.printing-idh-robcolor = {
+  den.aspects.lirmm.printing.idh-robcolor = {
     includes = [ ];
 
     nixos =

@@ -1,6 +1,7 @@
 { den, lib, ... }:
 {
-  den.aspects.networking-ender3-arnaud = {
+  den.aspects.arnaud.networking.ender3 = {
+    description = "Arnaud's Ender3 network configuration";
     includes = [ ];
 
     nixos =

@@ -1,10 +1,10 @@
 # Niri + wayland
 { den, ... }:
 {
-  den.aspects.niri-arnaud = {
+  den.aspects.arnaud.niri = {
     includes = [
       den.aspects.niri-base
-      den.aspects.bitwarden-arnaud
+      den.aspects.arnaud.bitwarden
     ];
 
     homeManager =

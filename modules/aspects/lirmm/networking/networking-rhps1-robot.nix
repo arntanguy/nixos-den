@@ -1,6 +1,6 @@
 { den, ... }:
 {
-  den.aspects.networking-rhps1-robot = {
+  den.aspects.lirmm.networking.rhps1-robot = {
     includes = [ ];
 
     nixos =

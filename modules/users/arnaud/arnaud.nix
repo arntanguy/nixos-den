@@ -2,24 +2,29 @@
 {
   # user aspect
   den.aspects.arnaud = { host, ... }: {
-    includes = [
-      den.batteries.define-user
-      den.batteries.primary-user
-      den.batteries.hostname
-      den.aspects.nvim-arnaud
-      den.aspects.fish-arnaud
-      den.aspects.niri-arnaud
-      den.aspects.arnaud.desktop-apps
+    includes =
+      with den.batteries;
+      [
+        define-user
+        primary-user
+        hostname
+      ]
+      ++ (with den.aspects; [
+        devel.jrl
 
-      den.aspects.git-arnaud
-      den.aspects.yubikey-arnaud
-      den.aspects.arnaud.sops
-      den.aspects.arnaud.syncthing
+        # user specific aspects
+        arnaud.nvim
+        arnaud.fish
+        arnaud.niri
+        arnaud.desktop-apps
+        arnaud.git
+        arnaud.yubikey
+        arnaud.sops
+        arnaud.syncthing
+        arnaud.networking.wifi
 
-      den.aspects.arnaud.networking.wifi
-
-      den.aspects.devel.jrl
-    ];
+        arnaud.networking.ender3
+      ]);
 
     nixos =
       { user, ... }:

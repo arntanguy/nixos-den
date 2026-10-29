@@ -4,7 +4,7 @@
     includes = [
       den.aspects.terminal-tools-base
       # LIRMM
-      den.aspects.networking-panda-robots
+      den.aspects.lirmm.networking.panda-robots
     ];
 
     # host NixOS configuration

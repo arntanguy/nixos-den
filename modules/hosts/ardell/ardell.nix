@@ -1,14 +1,10 @@
 { den, ... }: {
   # host aspect
   den.aspects.ardell = {
-    includes = [
-      den.aspects.terminal-tools-base
+    includes = with den.aspects; [
+      terminal-tools-base
       # LIRMM
-      den.aspects.networking-panda-robots
-      den.aspects.networking-rhps1-robot
-      den.aspects.printing-idh-robcolor
-
-      den.aspects.networking-ender3-arnaud
+      lirmm.teams.idh
     ];
 
     # XXX: freeform
