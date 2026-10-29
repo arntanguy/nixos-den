@@ -18,9 +18,11 @@
         arnaud.niri
         arnaud.desktop-apps
         arnaud.git
+        arnaud.lazygit
         arnaud.yubikey
         arnaud.sops
         arnaud.syncthing
+        arnaud.publication
         arnaud.networking.wifi
 
         arnaud.networking.ender3

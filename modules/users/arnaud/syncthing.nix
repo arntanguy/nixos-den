@@ -1,6 +1,7 @@
 { den, ... }:
 {
   den.aspects.arnaud.syncthing = {
+    includes = [ den.aspects.arnaud.sops ];
     nixos =
       { ... }:
       {
