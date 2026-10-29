@@ -11,7 +11,7 @@
         ...
       }:
       {
-        sops = lib.mkIf host.enableSecrets {
+        sops = lib.mkIf (host.enableSecrets or false) {
           secrets = {
             "data/networking/wifi/EDUROAM" = {
               sopsFile = ./wifi-secrets.yaml;
@@ -19,7 +19,7 @@
           };
         };
 
-        networking = lib.mkIf host.enableSecrets {
+        networking = lib.mkIf (host.enableSecrets or false) {
           networkmanager = {
             # Add default profiles to autoconnect
             # Note: secrets are available as files at runtime decripted by sops (in /run/secrets)

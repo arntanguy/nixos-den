@@ -10,7 +10,7 @@
         ...
       }:
       {
-        sops = lib.mkIf host.enableSecrets {
+        sops = lib.mkIf (host.enableSecrets or false) {
           # User-level secrets managed entirely within Home Manager
           secrets = {
             "data/networking/wifi/ARNAUD_ANDROID_AP" = {
@@ -19,7 +19,7 @@
           };
         };
 
-        networking = lib.mkIf host.enableSecrets {
+        networking = lib.mkIf (host.enableSecrets or false) {
           networkmanager = {
             # Add default profiles to autoconnect
             # Note: secrets are available as files at runtime decripted by sops (in /run/secrets)

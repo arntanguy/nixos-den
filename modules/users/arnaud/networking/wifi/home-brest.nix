@@ -13,7 +13,7 @@
       }:
       {
 
-        sops = lib.mkIf host.enableSecrets {
+        sops = lib.mkIf (host.enableSecrets or false) {
           secrets = {
             "data/networking/wifi/HOME_BREST" = {
               sopsFile = ./wifi-secrets.yaml;
@@ -21,7 +21,7 @@
           };
         };
 
-        networking.networkmanager = {
+        networking.networkmanager = lib.mkIf (host.enableSecrets or false) {
           ensureProfiles = {
             environmentFiles = [
               config.sops.secrets."data/networking/wifi/HOME_BREST".path
