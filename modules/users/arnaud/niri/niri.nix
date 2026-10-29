@@ -5,6 +5,7 @@
     includes = [
       den.aspects.niri-base
       den.aspects.arnaud.bitwarden
+      den.aspects.arnaud.fuzzel # not strictly speaking needed now that we use noctalia
     ];
 
     homeManager =
