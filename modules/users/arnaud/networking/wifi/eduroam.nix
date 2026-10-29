@@ -13,7 +13,9 @@
       {
         sops = lib.mkIf host.enableSecrets {
           secrets = {
-            "data/networking/wifi/EDUROAM" = { };
+            "data/networking/wifi/EDUROAM" = {
+              sopsFile = ./wifi-secrets.yaml;
+            };
           };
         };
 

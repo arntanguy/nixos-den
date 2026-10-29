@@ -14,7 +14,9 @@
         sops = lib.mkIf host.enableSecrets {
           # User-level secrets managed entirely within Home Manager
           secrets = {
-            "data/networking/wifi/LIRMM" = { };
+            "data/networking/wifi/LIRMM" = {
+              sopsFile = ./wifi-secrets.yaml;
+            };
           };
         };
 

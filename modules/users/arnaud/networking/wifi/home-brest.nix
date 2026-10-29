@@ -15,7 +15,9 @@
 
         sops = lib.mkIf host.enableSecrets {
           secrets = {
-            "data/networking/wifi/HOME_BREST" = { };
+            "data/networking/wifi/HOME_BREST" = {
+              sopsFile = ./wifi-secrets.yaml;
+            };
           };
         };
 
