@@ -1,32 +1,9 @@
 # Niri + wayland
+{ den, ... }:
 {
-  den.aspects.niri = {
-    nixos =
-      { pkgs, ... }:
-      {
+  den.aspects.niri-arnaud = {
 
-        programs = {
-          niri.enable = true;
-          xwayland.enable = true;
-        };
-
-        services = {
-          displayManager.enable = true;
-          displayManager.ly.enable = true;
-        };
-
-        environment.systemPackages = with pkgs; [
-          xwayland
-          xwayland-satellite
-        ];
-
-        environment.variables = {
-          LD_LIBRARY_PATH = "/run/opengl-driver/lib";
-          ELECTRON_OZONE_PLATFORM_HINT = "wayland";
-          OZONE_PLATFORM = "wayland";
-          GDK_BACKEND = "wayland";
-        };
-      };
+    includes = [ den.aspects.niri-base ];
 
     homeManager =
       { pkgs, ... }:
