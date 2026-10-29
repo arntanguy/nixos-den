@@ -65,14 +65,17 @@
             devices = {
               "syncthing.arntanguy.fr" = {
                 id = "BEHCUNH-5ETNA7F-WEVMHST-7GDZXCB-2PRVVMT-ZFERPA5-6HCXBFY-A2IH7AQ"; # FIXME can i still get the certificate files used to generate it?
-                addresses = [ "tcp://arntanguy.fr:22000" ]; # Replace with your peer's public IP and port
+                addresses = [ "tcp://arntanguy.fr:22000" ];
               };
               "huiting13" = {
                 id = "HAIXTF7-YVE56GY-2OXWMLU-53MMVVW-QZGXI3P-GRRAYRY-P3D5N37-5OATHAP";
-                # FIXME address. Can i at least have a huiting13.local hostname when on lirmm network?
+                # XXX: if they have a fixed ip within lirmm, can we make them accessible from outside?
+                addresses = [ "tcp://huiting13.local:22000" ];
               };
-              "dell-precision-work" = {
+              "ardell" = {
                 id = "XFPHYXM-XDLUS6Q-K2KVNGU-MHYNLQ4-DINLOVI-BKQXG63-EJVUJAI-KFMQVAP";
+                # XXX: if they have a fixed ip within lirmm, can we make them accessible from outside?
+                addresses = [ "tcp://ardell.local:22000" ];
               };
             };
             folders = {

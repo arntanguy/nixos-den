@@ -4,6 +4,7 @@
     includes = [
       den.batteries.hostname
       den.aspects.init-users-password
+      den.aspects.advertise-hostnames
     ];
 
     nixos =
