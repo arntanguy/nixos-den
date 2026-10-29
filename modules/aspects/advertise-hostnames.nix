@@ -12,11 +12,13 @@
           nssmdns4 = true; # Allows resolving .local names for IPv4
           nssmdns6 = true; # Allows resolving .local names for IPv6
 
-          publish = {
-            enable = true;
-            addresses = true; # Publishes IPv4 and IPv6 addresses (<hostname>.local)
-            domain = true; # Publishes local domain name
-            workstation = true; # Publishes workstation service on LAN
+          settings = {
+            publish = {
+              disable-publishing = false; # Enables publishing of services
+              publish-domain = true;
+              publish-workstation = true;
+              publish-addresses = true;
+            };
           };
         };
 
