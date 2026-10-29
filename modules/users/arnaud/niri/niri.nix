@@ -6,6 +6,7 @@
       den.aspects.niri-base
       den.aspects.arnaud.bitwarden
       den.aspects.arnaud.fuzzel # not strictly speaking needed now that we use noctalia
+      den.aspects.arnaud.kitty
     ];
 
     homeManager =
@@ -14,7 +15,6 @@
         home.packages = with pkgs; [
           sunsetr
           noctalia
-          kitty
           bitwarden-desktop
         ];
 
