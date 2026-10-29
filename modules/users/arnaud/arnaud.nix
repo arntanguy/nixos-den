@@ -16,6 +16,8 @@
       den.aspects.arnaud.sops
       den.aspects.arnaud.syncthing
 
+      den.aspects.arnaud.networking.wifi
+
       den.aspects.devel.jrl
     ];
 
