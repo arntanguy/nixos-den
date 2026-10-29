@@ -12,6 +12,8 @@
 
       den.aspects.git-arnaud
       den.aspects.yubikey-arnaud
+
+      den.aspects.devel.jrl
     ];
 
     homeManager =
