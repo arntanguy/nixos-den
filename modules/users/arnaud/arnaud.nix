@@ -14,6 +14,7 @@
 
         # user specific aspects
         arnaud.nvim
+        arnaud.email
         arnaud.fish
         arnaud.niri
         arnaud.desktop-apps
