@@ -16,6 +16,14 @@
           "flakes"
         ];
 
+        programs = {
+          # Automatically creates a loader in /lib/* to avoid patching stuff
+          # This allows to run most non-nix programs without patching
+          # See: https://wiki.nixos.org/wiki/Nix-ld
+          # Needed to run most uv packages natively
+          nix-ld.enable = true;
+        };
+
         networking.firewall = {
           enable = true;
         };
