@@ -4,6 +4,7 @@
   den.aspects.arnaud.desktop-apps = {
     includes = [
       den.aspects.nautilus
+      (den.batteries.unfree [ "obsidian" ])
     ];
 
     homeManager =
@@ -13,6 +14,7 @@
 
         home.packages = with pkgs; [
           eog
+          obsidian
         ];
       };
   };
