@@ -6,6 +6,7 @@
       den.aspects.terminal-tools-base
       den.aspects.laptop
       # LIRMM
+      den.aspects.lirmm.common
       den.aspects.lirmm.teams.idh
     ];
 
