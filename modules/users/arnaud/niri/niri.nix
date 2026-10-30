@@ -600,6 +600,29 @@
               place-within-backdrop true
           }
         '';
+        dconf.settings = {
+          "org/gnome/desktop/interface" = {
+            color-scheme = "prefer-dark";
+          };
+        };
+        gtk = {
+          enable = true;
+          theme.name = "Adwaita-dark";
+
+          colorScheme = "dark";
+        };
+        qt = {
+          enable = true;
+          style.name = "adwaita-dark";
+        };
+        home.pointerCursor = {
+          enable = true;
+          gtk.enable = true;
+          package = pkgs.catppuccin-cursors.mochaSapphire;
+          name = "catppuccin-mocha-sapphire-cursors";
+          size = 12;
+        };
       };
+
   };
 }
