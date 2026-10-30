@@ -3,6 +3,7 @@
   den.aspects.common = {
     includes = [
       den.batteries.hostname
+      den.aspects.firmware-update
       den.aspects.init-users-password
       den.aspects.advertise-hostnames
     ];
