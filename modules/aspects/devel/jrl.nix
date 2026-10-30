@@ -8,6 +8,7 @@
       den.aspects.devel.github
       den.aspects.devel.docker
       den.aspects.devel.vscode
+      den.aspects.devel.pre-commit
     ];
 
     nixos =
@@ -48,8 +49,7 @@
         home.packages = with pkgs; [
           jrl-cmakemodules
           cloudsmith-cli
-          pre-commit
-          prek
+          ccache
         ];
       };
   };
