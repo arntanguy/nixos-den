@@ -30,7 +30,19 @@
 
         environment.variables = {
           GTK_THEME = "Adwaita"; # Set default GTK theme
+          XCURSOR_THEME = "Adwaita"; # Set cursor theme
+          XCURSOR_SIZE = 24; # Set cursor size (optional)
         };
       };
+
+    homeManager = { pkgs, ... }: {
+      home.pointerCursor = {
+        enable = true;
+        gtk.enable = true;
+        package = pkgs.catppuccin-cursors.mochaSapphire; # Specify cursor theme package
+        name = "catppuccin-mocha-sapphire-cursors"; # Specify cursor theme name
+        size = 12; # Set cursor size
+      };
+    };
   };
 }

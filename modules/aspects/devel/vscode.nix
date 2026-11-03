@@ -14,6 +14,7 @@
     homeManager =
       { pkgs, ... }:
       {
+        home.packages = with pkgs; [ clang-tools ];
         programs = {
           vscode = {
             # or vscodium for opensource

@@ -4,7 +4,6 @@
   den.aspects.panda = {
     includes = [
       den.batteries.define-user
-      den.batteries.primary-user
     ]
     ++ (with den.aspects; [
       desktop-apps
@@ -13,10 +12,26 @@
       # user specific aspects
       # XXX for now imported from arnaud user
       arnaud.nvim
-      arnaud.fish
-      # arnaud.niri
-      gnome-base
+      zsh
+      gnome-base # or arnaud.niri
+      panda.git
     ]);
+
+    nixos =
+      { user, ... }:
+      {
+        users.users.${user.name} = {
+          extraGroups = [
+            "wheel"
+            "dialout"
+            "plugdev"
+            "networkmanager"
+            "wireshark"
+            "docker"
+            "input"
+          ];
+        };
+      };
 
     homeManager =
       { pkgs, ... }:

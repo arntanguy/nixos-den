@@ -3,6 +3,8 @@
   den.aspects.idh-msi-dragon = {
     includes = [
       den.aspects.common # nix settings, openssh, init user passwords
+      den.aspects.nvidia
+      den.aspects.idh-msi-dragon.nvidia
       den.aspects.terminal-tools-base
       den.aspects.laptop
       # LIRMM
@@ -42,7 +44,15 @@
           useXkbConfig = true;
         };
 
+        # Disable sleep
+        # XXX: test me
+        systemd.targets.sleep.enable = false;
+        systemd.targets.suspend.enable = false;
+        systemd.targets.hibernate.enable = false;
+        systemd.targets.hybrid-sleep.enable = false;
+
         environment.systemPackages = [ pkgs.hello ];
+
       };
 
     # host provides default home environment for its users

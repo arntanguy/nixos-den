@@ -19,7 +19,6 @@
         arnaud.niri
         arnaud.desktop-apps
         arnaud.git
-        arnaud.lazygit
         arnaud.yubikey
         arnaud.sops
         arnaud.syncthing

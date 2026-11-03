@@ -9,6 +9,7 @@
       den.aspects.devel.docker
       den.aspects.devel.vscode
       den.aspects.devel.pre-commit
+      den.aspects.devel.lazygit
     ];
 
     nixos =
