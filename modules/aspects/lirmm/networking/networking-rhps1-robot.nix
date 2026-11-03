@@ -20,7 +20,6 @@
 
         networking = {
           interfaces.${host.ethernetInterface} = {
-            useDHCP = false;
             ipv4.addresses = [
               {
                 address = "10.4.5.${host.ipSuffix}";

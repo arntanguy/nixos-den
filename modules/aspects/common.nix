@@ -35,6 +35,10 @@
           ];
         };
 
+        # Support all terminals over ssh
+        # Enables terminfo database for a wide range of terminals globally
+        environment.enableAllTerminfo = true;
+
         services.openssh = {
           enable = true;
           # Optional: allow password authentication (default is false)

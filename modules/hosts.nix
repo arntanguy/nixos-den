@@ -57,6 +57,22 @@
     enableSecrets = true;
   };
 
+  den.hosts.x86_64-linux.idh-msi-dragon = {
+    description = "MSI SKU: CVyborg 15 B2RWEKG-846XFR-TBC9270H16GXXDXX";
+    users.arnaud = { };
+    users.panda = { };
+
+    # XXX: freeform, better format
+    ipSuffix = "45";
+    ethernetInterface = "enp3s0";
+    # XXX: must be set to false for nixos-anywhere
+    # then copy the user's age keys to ~/.config/sops/age/keys.txt
+    # then put to true
+    # then run nixos-rebuild switch
+    # enableSecrets = true;
+    enableSecrets = false;
+  };
+
   # define an standalone home-manager for tux
   # den.homes.x86_64-linux.tux = { };
 

@@ -1,5 +1,5 @@
 {
-  den.aspects.arnaud.lazygit = {
+  den.aspects.devel.lazygit = {
     description = "A simple terminal UI for git commands, written in Go.";
     homeManager =
       {

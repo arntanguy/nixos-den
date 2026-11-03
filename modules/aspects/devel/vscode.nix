@@ -14,6 +14,7 @@
     homeManager =
       { pkgs, ... }:
       {
+        home.packages = with pkgs; [ clang-tools ];
         programs = {
           vscode = {
             # or vscodium for opensource
@@ -43,10 +44,7 @@
 
             profiles.default.extensions = with pkgs.vscode-extensions; [
               mkhl.direnv
-              twxs.cmake
               ms-vscode.cmake-tools
-              # ms-vscode.cpptools
-              # ms-vscode.cpptools-extension-pack
               llvm-vs-code-extensions.vscode-clangd # Replaces ms-vscode.cpptools
               ms-vscode-remote.remote-containers
               ms-python.python

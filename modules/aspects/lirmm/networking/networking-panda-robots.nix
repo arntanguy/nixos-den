@@ -44,7 +44,6 @@
 
         networking = {
           interfaces.${ethernetInterface} = {
-            useDHCP = false;
             ipv4.addresses = [
               {
                 address = "172.16.0.${ipSuffixStr}";

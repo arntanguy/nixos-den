@@ -4,14 +4,46 @@
   den.aspects.panda = {
     includes = [
       den.batteries.define-user
-      den.batteries.primary-user
-      (den.batteries.user-shell "bash")
-    ];
+    ]
+    ++ (with den.aspects; [
+      desktop-apps
+      devel.jrl
+
+      # user specific aspects
+      # XXX for now imported from arnaud user
+      arnaud.nvim
+      zsh
+      gnome-base # or arnaud.niri
+      panda.git
+    ]);
+
+    nixos =
+      { user, ... }:
+      {
+        users.users.${user.name} = {
+          extraGroups = [
+            "dialout"
+            "plugdev"
+            "networkmanager"
+            "wireshark"
+            "docker"
+            "input"
+          ];
+        };
+      };
 
     homeManager =
       { pkgs, ... }:
       {
         home.packages = [ ];
+        programs.kitty = {
+          enable = true;
+
+          settings = {
+            clipboard_control = "clipboard_control write-clipboard write-primary read-clipboard read-primary";
+            background_opacity = "0.85";
+          };
+        };
       };
 
     # user can provide NixOS configurations
