@@ -8,6 +8,7 @@
       # LIRMM
       den.aspects.lirmm.common
       den.aspects.lirmm.teams.idh
+      den.aspects.arnaud.kitty
     ];
 
     # host NixOS configuration
@@ -21,13 +22,24 @@
         ];
 
         # Bootloader
-        boot.loader = {
-          systemd-boot.enable = true;
-          efi.canTouchEfiVariables = true;
-        };
         boot = {
+          loader = {
+            systemd-boot.enable = true;
+            efi.canTouchEfiVariables = true;
+          };
           kernelPackages = pkgs.linuxPackages; # which linux kernel to boot
           supportedFilesystems = [ "ntfs" ]; # ensure the linux kernel has ntfs support
+        };
+        # X11 / XKB Settings (Ly and Wayland compositors use this underlying layer)
+        services.xserver.xkb = {
+          layout = "fr";
+          variant = ""; # optional: e.g., "nodeadkeys"
+          options = "grp:win_space_toggle"; # optional: layout switching shortcuts if you have multiple
+        };
+        # `keymap` won't apply when prompted to enter the passphrase to decrypt on boot
+        console = {
+          earlySetup = true;
+          useXkbConfig = true;
         };
 
         environment.systemPackages = [ pkgs.hello ];

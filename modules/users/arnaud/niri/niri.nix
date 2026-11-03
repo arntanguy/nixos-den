@@ -41,13 +41,6 @@
 
         xdg.configFile."niri/config.kdl".text = ''
           input {
-              keyboard {
-                  xkb {
-                      layout "us" // FIXME: configure 
-                      options "grp:win_space_toggle,compose:ralt,ctrl:nocaps" // FIXME: configure
-                  }
-                  numlock
-              }
               touchpad {
                   // off
                   tap
