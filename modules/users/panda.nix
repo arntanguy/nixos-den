@@ -6,7 +6,17 @@
       den.batteries.define-user
       den.batteries.primary-user
       (den.batteries.user-shell "bash")
-    ];
+    ]
+      ++ (with den.aspects; [
+        desktop-apps
+        devel.jrl
+
+        # user specific aspects
+        # XXX for now imported from arnaud user
+        arnaud.nvim
+        arnaud.fish
+        arnaud.niri
+      ]);
 
     homeManager =
       { pkgs, ... }:
