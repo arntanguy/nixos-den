@@ -9,7 +9,10 @@
     homeManager =
       { pkgs, ... }:
       {
-        home.packages = with pkgs; [ lsd ];
+        home.packages = with pkgs; [
+          lsd
+          bat
+        ];
         home.file.".p10k.zsh".source = ./p10k.zsh;
         programs.zsh = {
           enable = true;
@@ -62,7 +65,6 @@
             ls = "lsd --hyperlink=auto";
             ll = "ls -l";
             la = "ls -lAtr";
-            cat = "bat";
             ta = "tmux a";
 
             bn = "cmake -B build";

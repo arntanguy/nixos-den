@@ -22,7 +22,6 @@
       {
         users.users.${user.name} = {
           extraGroups = [
-            "wheel"
             "dialout"
             "plugdev"
             "networkmanager"

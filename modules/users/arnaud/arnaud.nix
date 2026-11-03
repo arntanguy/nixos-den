@@ -6,7 +6,7 @@
       with den.batteries;
       [
         define-user
-        primary-user
+        primary-user # admin with sudo rights, adds to wheel and networkmanager groups
         hostname
       ]
       ++ (with den.aspects; [
@@ -34,10 +34,8 @@
       {
         users.users.${user.name} = {
           extraGroups = [
-            "wheel"
             "dialout"
             "plugdev"
-            "networkmanager"
             "wireshark"
             "docker"
             "input"
