@@ -36,6 +36,14 @@
       { pkgs, ... }:
       {
         home.packages = [ ];
+        programs.kitty = {
+          enable = true;
+
+          settings = {
+            clipboard_control = "clipboard_control write-clipboard write-primary read-clipboard read-primary";
+            background_opacity = "0.85";
+          };
+        };
       };
 
     # user can provide NixOS configurations

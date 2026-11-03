@@ -10,7 +10,6 @@
       # LIRMM
       den.aspects.lirmm.common
       den.aspects.lirmm.teams.idh
-      den.aspects.arnaud.kitty
     ];
 
     # host NixOS configuration
