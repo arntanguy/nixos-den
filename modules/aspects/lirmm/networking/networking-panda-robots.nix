@@ -42,6 +42,8 @@
           '';
         };
 
+        networking.firewall.enable = builtins.trace "FIXME: disabling firewall for panda robots" (lib.mkForce false);
+
         networking = {
           interfaces.${ethernetInterface} = {
             ipv4.addresses = [

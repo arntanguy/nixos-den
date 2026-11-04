@@ -35,7 +35,7 @@
     homeManager =
       { pkgs, ... }:
       {
-        home.packages = [ ];
+        home.packages = with pkgs; [ chromium ];
         programs.kitty = {
           enable = true;
 
