@@ -24,6 +24,7 @@
         arnaud.syncthing
         arnaud.publication
         arnaud.networking.wifi
+        arnaud.ssh
 
         arnaud.networking.ender3
         arnaud.audio-editing

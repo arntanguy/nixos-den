@@ -9,7 +9,10 @@
 
     nixos = { pkgs, ... }: {
       time.timeZone = "Europe/Paris";
-      environment.systemPackages = with pkgs; [ glpi-agent ];
+      environment.systemPackages = with pkgs; [
+        glpi-agent
+        eduvpn-client
+      ];
     };
   };
 }
